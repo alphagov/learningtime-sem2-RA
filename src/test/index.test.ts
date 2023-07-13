@@ -1,4 +1,4 @@
-import { helloWorld } from '..'
+import { helloWorld } from '../server'
 
 describe('dummy test', () => {
     beforeEach(() => {})
