@@ -1,0 +1,14 @@
+
+*.sh
+.editorconfig
+.env*
+.eslintignore
+.gitignore
+.husky
+.prettierignore
+.pnp.*
+.yarn
+yarn.lock
+.github
+*.md
+tsconfig.json

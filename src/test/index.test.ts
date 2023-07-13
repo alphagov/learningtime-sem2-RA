@@ -1,7 +1,6 @@
-import { helloWorld } from ".."
+import { helloWorld } from '..'
 
 describe('dummy test', () => {
-    
     beforeEach(() => {})
 
     it('can return HelloWorld', () => {
@@ -9,5 +8,4 @@ describe('dummy test', () => {
         const message = helloWorld()
         expect(message).toBe(expectedString)
     })
-
-} )
+})

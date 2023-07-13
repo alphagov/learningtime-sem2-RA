@@ -1,2 +1,1 @@
-export const helloWorld = () => 
-     'HelloWorld'
+export const helloWorld = () => 'HelloWorld'
