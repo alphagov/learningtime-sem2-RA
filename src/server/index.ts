@@ -9,11 +9,11 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/', express.static(path.join(__dirname, 'public')))
 
-app.get('/', (request: Request, response: Response) => {
+app.get('/', (_request: Request, response: Response) => {
     response.json({ hello: 'world' })
 })
 
-app.get('/goodbye', (request: Request, response: Response) => {
+app.get('/goodbye', (_request: Request, response: Response) => {
     response.json({ goodbye: 'world' })
 })
 
