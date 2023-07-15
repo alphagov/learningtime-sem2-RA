@@ -1,25 +1,23 @@
-import { useState } from 'react'
-
-function App() {
-    const [message, setMessage] = useState({ Hello: 'World' })
-
+const App = () => {
     return (
         <>
             <div>
-                <p>The current message is {Object.entries(message)} </p>
+                <h1>Find local crime data</h1>
             </div>
             <div className="card">
-                <button
-                    onClick={async () => {
-                        const response = await fetch(
-                            'http://localhost:5000/goodbye'
-                        )
-                        const data = await response.json()
-                        setMessage(data)
+                <form
+                    action="/getData"
+                    method="POST"
+                    style={{
+                        display: 'flex',
+                        gap: '5px'
                     }}
                 >
-                    Press to say Goodbye
-                </button>
+                    <label>Enter your postcode:</label>
+                    <input type="text" id="postcode" name="postcode" />
+                    <br />
+                    <button type="submit">Submit your postcode</button>
+                </form>
             </div>
         </>
     )
