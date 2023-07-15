@@ -18,9 +18,10 @@ app.get('/', (_request: Request, response: Response) => {
 app.post('/api/postcode', (request: Request, response: Response) => {
     console.log(request)
     const { postcode } = request.body
+    const parsedPostcode: string = postcode.replace(' ', '').toUpperCase()
 
     // Process the request and prepare the response data
-    const responseData = `This is your postcode: ${postcode}`
+    const responseData = `This is your postcode: ${parsedPostcode}`
 
     // Send the response data back to the client
     response.json({ message: responseData })
