@@ -15,8 +15,15 @@ app.get('/', (_request: Request, response: Response) => {
     response.json({ hello: 'world' })
 })
 
-app.get('/goodbye', (_request: Request, response: Response) => {
-    response.json({ goodbye: 'world' })
+app.post('/api/postcode', (request: Request, response: Response) => {
+    console.log(request)
+    const { postcode } = request.body
+
+    // Process the request and prepare the response data
+    const responseData = `This is your postcode: ${postcode}`
+
+    // Send the response data back to the client
+    response.json({ message: responseData })
 })
 
 app.listen(port, () => {
