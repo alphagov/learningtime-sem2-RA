@@ -94,7 +94,38 @@ export const TEST_INVALID_POSTCODE_API_FETCH_RESPONSE = {
     }
 }
 
-export const TEST_POLICE_API_RESPONSE_DATA = [{}]
+export const TEST_POLICE_API_RESPONSE_DATA = [
+    {
+        category: 'anti-social-behaviour',
+        location_type: 'Force',
+        location: {
+            latitude: '51.504126',
+            street: { id: 1682088, name: 'On or near Joan Street' },
+            longitude: '-0.105409'
+        },
+        context: '',
+        outcome_status: null,
+        persistent_id: '',
+        id: 110505667,
+        location_subtype: '',
+        month: '2023-05'
+    },
+    {
+        category: 'anti-social-behaviour',
+        location_type: 'Force',
+        location: {
+            latitude: '51.514684',
+            street: { id: 1676465, name: 'On or near Argyll Street' },
+            longitude: '-0.140844'
+        },
+        context: '',
+        outcome_status: null,
+        persistent_id: '',
+        id: 110505724,
+        location_subtype: '',
+        month: '2023-05'
+    }
+]
 
 export const TEST_POLICE_API_FETCH_RESPONSE = {
     ...TEST_200_FETCH_RESPONSE,
@@ -102,3 +133,15 @@ export const TEST_POLICE_API_FETCH_RESPONSE = {
         return [...TEST_POLICE_API_RESPONSE_DATA]
     }
 }
+
+export const TEST_POLICE_API_FETCH_RESPONSE_NO_DATA = {
+    ...TEST_200_FETCH_RESPONSE,
+    json: async () => {
+        return []
+    }
+}
+
+export const TEST_VALID_POLICE_API_LAT_LONG = [
+    TEST_VALID_POSTCODE_LONG_LAT[1],
+    TEST_VALID_POSTCODE_LONG_LAT[0]
+]
