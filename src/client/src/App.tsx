@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { PoliceAPIResponse } from '../../server/utils/types/policeAPI'
 import { PostcodeForm } from './components/PostcodeForm'
+import { DataTable } from './components/DataTable'
 
 const App = () => {
     const [postcode, setPostcode] = useState('')
@@ -9,25 +10,21 @@ const App = () => {
 
     return (
         <>
-            <div>
+            <div className="Title">
                 <h1>Find local crime data</h1>
             </div>
-            <PostcodeForm
-                postcode={postcode}
-                data={data}
-                setMessage={setMessage}
-                setPostcode={setPostcode}
-                setData={setData}
-            ></PostcodeForm>
-            <div className="card"></div>
-            <div>{message}</div>
-            <div>
-                {Object.keys(data).map((key) => (
-                    <tr key={key}>
-                        <td>{key}</td>
-                        <td>{data[key].length}</td>
-                    </tr>
-                ))}
+            <div className="postcodeForm">
+                <PostcodeForm
+                    postcode={postcode}
+                    data={data}
+                    setMessage={setMessage}
+                    setPostcode={setPostcode}
+                    setData={setData}
+                ></PostcodeForm>
+            </div>
+            <div className="errorMessage">{message}</div>
+            <div className="dataTable">
+                <DataTable data={data} />
             </div>
         </>
     )
