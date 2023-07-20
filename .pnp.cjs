@@ -32,6 +32,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/cors", "npm:2.8.13"],\
             ["@types/express", "npm:4.17.17"],\
             ["@types/jest", "npm:29.5.3"],\
+            ["@types/jest-when", "npm:3.5.2"],\
             ["@types/react", "npm:18.2.14"],\
             ["@types/react-dom", "npm:18.2.7"],\
             ["@typescript-eslint/eslint-plugin", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:6.0.0"],\
@@ -46,6 +47,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express", "npm:4.18.2"],\
             ["husky", "npm:8.0.3"],\
             ["jest", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:29.6.1"],\
+            ["jest-when", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:3.5.2"],\
             ["lint-staged", "npm:13.2.3"],\
             ["nodemon", "npm:3.0.1"],\
             ["prettier", "npm:3.0.0"],\
@@ -1865,6 +1867,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:29.5.3"],\
             ["expect", "npm:29.6.1"],\
             ["pretty-format", "npm:29.6.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/jest-when", [\
+        ["npm:3.5.2", {\
+          "packageLocation": "./.yarn/cache/@types-jest-when-npm-3.5.2-8b6f3f4c13-106230dd71.zip/node_modules/@types/jest-when/",\
+          "packageDependencies": [\
+            ["@types/jest-when", "npm:3.5.2"],\
+            ["@types/jest", "npm:29.5.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5219,6 +5231,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["jest-when", [\
+        ["npm:3.5.2", {\
+          "packageLocation": "./.yarn/cache/jest-when-npm-3.5.2-adc3b79257-9ad95552d3.zip/node_modules/jest-when/",\
+          "packageDependencies": [\
+            ["jest-when", "npm:3.5.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:3.5.2", {\
+          "packageLocation": "./.yarn/__virtual__/jest-when-virtual-ccad3901be/0/cache/jest-when-npm-3.5.2-adc3b79257-9ad95552d3.zip/node_modules/jest-when/",\
+          "packageDependencies": [\
+            ["jest-when", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:3.5.2"],\
+            ["@types/jest", "npm:29.5.3"],\
+            ["jest", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:29.6.1"]\
+          ],\
+          "packagePeers": [\
+            "@types/jest",\
+            "jest"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["jest-worker", [\
         ["npm:29.6.1", {\
           "packageLocation": "./.yarn/cache/jest-worker-npm-29.6.1-cb3d986077-0af309ea4d.zip/node_modules/jest-worker/",\
@@ -5323,6 +5357,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/cors", "npm:2.8.13"],\
             ["@types/express", "npm:4.17.17"],\
             ["@types/jest", "npm:29.5.3"],\
+            ["@types/jest-when", "npm:3.5.2"],\
             ["@types/react", "npm:18.2.14"],\
             ["@types/react-dom", "npm:18.2.7"],\
             ["@typescript-eslint/eslint-plugin", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:6.0.0"],\
@@ -5337,6 +5372,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express", "npm:4.18.2"],\
             ["husky", "npm:8.0.3"],\
             ["jest", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:29.6.1"],\
+            ["jest-when", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:3.5.2"],\
             ["lint-staged", "npm:13.2.3"],\
             ["nodemon", "npm:3.0.1"],\
             ["prettier", "npm:3.0.0"],\
