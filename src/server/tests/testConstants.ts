@@ -1,3 +1,6 @@
+import { groupBy } from '../utils/groupByObjectKey'
+import { PoliceAPIResponse } from '../utils/types/policeAPI'
+
 export const TEST_VALID_POSTCODE = 'SW1A2AA'
 export const TEST_VALID_POSTCODE_LAT_LONG = [51.50354, -0.127695]
 export const TEST_200_FETCH_RESPONSE: Response = {
@@ -94,7 +97,7 @@ export const TEST_INVALID_POSTCODE_API_FETCH_RESPONSE = {
     }
 }
 
-export const TEST_POLICE_API_RESPONSE_DATA = [
+export const TEST_POLICE_API_RESPONSE_DATA: PoliceAPIResponse[] = [
     {
         category: 'anti-social-behaviour',
         location_type: 'Force',
@@ -127,6 +130,10 @@ export const TEST_POLICE_API_RESPONSE_DATA = [
     }
 ]
 
+export const TEST_POLICE_API_RESPONSE_DATA_GROUPED_BY_CRIME_TYPE = groupBy(
+    TEST_POLICE_API_RESPONSE_DATA,
+    (e) => e.category
+)
 export const TEST_POLICE_API_FETCH_RESPONSE = {
     ...TEST_200_FETCH_RESPONSE,
     json: async () => {

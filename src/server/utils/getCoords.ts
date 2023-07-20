@@ -1,3 +1,5 @@
+import { PostcodeAPIResponse } from './types/postcodeAPI'
+
 export const getCoords = async (
     postcode: string
 ): Promise<number[] | string> => {
@@ -5,7 +7,8 @@ export const getCoords = async (
     const postcodeApiResponse = await fetch(url, {
         method: 'GET'
     })
-    const parsedPostcodeResponse = await postcodeApiResponse.json()
+    const parsedPostcodeResponse: PostcodeAPIResponse =
+        await postcodeApiResponse.json()
     if (parsedPostcodeResponse.status == 404) {
         return 'Invalid postcode, please try again'
     }

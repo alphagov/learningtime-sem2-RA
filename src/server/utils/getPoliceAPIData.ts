@@ -1,15 +1,19 @@
+import { groupBy } from './groupByObjectKey'
+import { PoliceAPIResponse } from './types/policeAPI'
+
 export const getPoliceAPIData = async ([lat, long]: number[]): Promise<
-    Record<string, unknown> | string
+    Record<string, PoliceAPIResponse[]> | string
 > => {
     const url = `https://data.police.uk/api/crimes-street/all-crime?lat=${lat}&lng=${long}`
     const data = await fetch(url, {
         method: 'GET'
     })
 
-    const parsedData = await data.json()
+    const parsedData: PoliceAPIResponse[] = await data.json()
     if (parsedData.length === 0) {
         // The api does not validate long/lat input and instead returns an empty [] when given invalid long/lat
         return 'No Data returned for specified area'
     }
-    return parsedData
+    const groupedDataByCrimeType = groupBy(parsedData, (e) => e.category)
+    return groupedDataByCrimeType
 }

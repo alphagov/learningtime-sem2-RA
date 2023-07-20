@@ -1,8 +1,10 @@
 import { FormEvent, useState } from 'react'
+import { PoliceAPIResponse } from '../../server/utils/types/policeAPI'
 
 const App = () => {
     const [postcode, setPostcode] = useState('')
     const [message, setMessage] = useState('')
+    const [data, setData] = useState({} as Record<string, PoliceAPIResponse[]>)
 
     const handleForm = async (event: FormEvent) => {
         event.preventDefault()
@@ -15,7 +17,7 @@ const App = () => {
                 body: JSON.stringify({ postcode })
             })
             const parsedMessage = await response.json()
-            setMessage(JSON.stringify(parsedMessage.data))
+            setData({ ...data, ...parsedMessage.data })
         } catch (error) {
             console.error(error)
             setMessage('Whoopsy daisy there was an error lol')
@@ -49,8 +51,14 @@ const App = () => {
                     <button type="submit">Submit your postcode</button>
                 </form>
             </div>
+            <div>{message}</div>
             <div>
-                <p>{message}</p>
+                {Object.keys(data).map((key) => (
+                    <tr key={key}>
+                        <td>{key}</td>
+                        <td>{data[key].length}</td>
+                    </tr>
+                ))}
             </div>
         </>
     )
