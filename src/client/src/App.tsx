@@ -13,7 +13,7 @@ const App = () => {
             <div className="Title">
                 <h1>Find local crime data</h1>
             </div>
-            <div className="postcodeForm">
+            <div>
                 <PostcodeForm
                     postcode={postcode}
                     data={data}

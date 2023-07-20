@@ -32,3 +32,9 @@ td {
     text-align: left;
     padding-right: 20px;
 }
+
+.postcodeForm {
+    padding: 10px;
+    display: flex;
+    gap: 2.5px;
+}
