@@ -1,12 +1,10 @@
 export const getCoords = async (
     postcode: string
 ): Promise<number[] | string> => {
-    const postcodeApiResponse = await fetch(
-        `api.postcodes.io/postcodes/${postcode}`,
-        {
-            method: 'GET'
-        }
-    )
+    const url = new URL(`${postcode}`, 'https://api.postcodes.io/postcodes/')
+    const postcodeApiResponse = await fetch(url, {
+        method: 'GET'
+    })
     const parsedPostcodeResponse = await postcodeApiResponse.json()
     if (parsedPostcodeResponse.status == 404) {
         return 'Invalid postcode, please try again'
