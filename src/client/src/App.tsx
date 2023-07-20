@@ -17,7 +17,13 @@ const App = () => {
                 body: JSON.stringify({ postcode })
             })
             const parsedMessage = await response.json()
-            setData({ ...data, ...parsedMessage.data })
+            if (typeof parsedMessage.data == 'string') {
+                setMessage(parsedMessage.data)
+                setData({})
+            } else {
+                setData({ ...data, ...parsedMessage.data })
+                setMessage('')
+            }
         } catch (error) {
             console.error(error)
             setMessage('Whoopsy daisy there was an error lol')
