@@ -30,5 +30,4 @@ describe('Testing the get coordinates function', () => {
         const response = await getCoords(TEST_INVALID_POSTCODE)
         expect(response).toEqual('Invalid postcode, please try again')
     })
-    it.todo('rejects an invalid postcode input')
 })
