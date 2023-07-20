@@ -7,14 +7,22 @@ interface DataTableProps {
 export const DataTable = ({ data }: DataTableProps) => {
     return (
         <>
-            <th>Crime Category</th>
-            <th>Occurance</th>
-            {Object.keys(data).map((key) => (
-                <tr key={key}>
-                    <td>{key}</td>
-                    <td>{data[key].length}</td>
-                </tr>
-            ))}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Crime Category</th>
+                        <th>Occurance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {Object.keys(data).map((key) => (
+                        <tr key={key}>
+                            <td>{key}</td>
+                            <td>{data[key].length}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </>
     )
 }
