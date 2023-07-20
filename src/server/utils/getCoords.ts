@@ -9,9 +9,8 @@ export const getCoords = async (
     if (parsedPostcodeResponse.status == 404) {
         return 'Invalid postcode, please try again'
     }
-    const [lat, long]: number[] = [
+    return [
         parsedPostcodeResponse.result.latitude,
         parsedPostcodeResponse.result.longitude
     ]
-    return [lat, long]
 }
