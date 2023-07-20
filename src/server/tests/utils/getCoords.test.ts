@@ -5,7 +5,7 @@ import {
     TEST_INVALID_POSTCODE_API_FETCH_RESPONSE,
     TEST_POSTCODE_API_FETCH_RESPONSE,
     TEST_VALID_POSTCODE,
-    TEST_VALID_POSTCODE_LONG_LAT
+    TEST_VALID_POSTCODE_LAT_LONG
 } from '../testConstants'
 
 const fetchSpy = jest.spyOn(global, 'fetch')
@@ -21,7 +21,7 @@ describe('Testing the get coordinates function', () => {
             )
             .mockResolvedValue(TEST_POSTCODE_API_FETCH_RESPONSE)
         const response = await getCoords(TEST_VALID_POSTCODE)
-        expect(response).toEqual(TEST_VALID_POSTCODE_LONG_LAT)
+        expect(response).toEqual(TEST_VALID_POSTCODE_LAT_LONG)
     })
 
     it('rejects an invalid postcode input', async () => {

@@ -24,7 +24,7 @@ app.post('/api/postcode', async (request: Request, response: Response) => {
     // Process the request and prepare the response data
     const coords = await getCoords(parsedPostcode)
     if (Array.isArray(coords)) {
-        const policeAPIData = await getPoliceAPIData(coords.reverse())
+        const policeAPIData = await getPoliceAPIData(coords)
         response.json({ data: policeAPIData })
     } else {
         response.json({ data: coords })

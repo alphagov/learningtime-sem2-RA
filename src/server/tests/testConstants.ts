@@ -1,5 +1,5 @@
 export const TEST_VALID_POSTCODE = 'SW1A2AA'
-export const TEST_VALID_POSTCODE_LONG_LAT = [-0.127695, 51.50354]
+export const TEST_VALID_POSTCODE_LAT_LONG = [51.50354, -0.127695]
 export const TEST_200_FETCH_RESPONSE: Response = {
     status: 200,
     json: async () => {
@@ -141,7 +141,4 @@ export const TEST_POLICE_API_FETCH_RESPONSE_NO_DATA = {
     }
 }
 
-export const TEST_VALID_POLICE_API_LAT_LONG = [
-    TEST_VALID_POSTCODE_LONG_LAT[1],
-    TEST_VALID_POSTCODE_LONG_LAT[0]
-]
+export const TEST_VALID_POLICE_API_LAT_LONG = [...TEST_VALID_POSTCODE_LAT_LONG]

@@ -4,8 +4,7 @@ import {
     TEST_POLICE_API_FETCH_RESPONSE,
     TEST_POLICE_API_FETCH_RESPONSE_NO_DATA,
     TEST_POLICE_API_RESPONSE_DATA,
-    TEST_VALID_POLICE_API_LAT_LONG,
-    TEST_VALID_POSTCODE_LONG_LAT
+    TEST_VALID_POLICE_API_LAT_LONG
 } from '../testConstants'
 
 const fetchSpy = jest.spyOn(global, 'fetch')
@@ -14,7 +13,7 @@ describe('tests for fetch policeAPI response', () => {
     it('fetches all crime data for a given longitude and latitude', async () => {
         when(fetchSpy)
             .calledWith(
-                `https://data.police.uk/api/crimes-street/all-crime?lat=${TEST_VALID_POSTCODE_LONG_LAT[1]}&lng=${TEST_VALID_POSTCODE_LONG_LAT[0]}`,
+                `https://data.police.uk/api/crimes-street/all-crime?lat=${TEST_VALID_POLICE_API_LAT_LONG[0]}&lng=${TEST_VALID_POLICE_API_LAT_LONG[1]}`,
                 {
                     method: 'GET'
                 }
@@ -27,7 +26,7 @@ describe('tests for fetch policeAPI response', () => {
     it('handles the case where no data is returned', async () => {
         when(fetchSpy)
             .calledWith(
-                `https://data.police.uk/api/crimes-street/all-crime?lat=${TEST_VALID_POSTCODE_LONG_LAT[1]}&lng=${TEST_VALID_POSTCODE_LONG_LAT[0]}`,
+                `https://data.police.uk/api/crimes-street/all-crime?lat=${TEST_VALID_POLICE_API_LAT_LONG[0]}&lng=${TEST_VALID_POLICE_API_LAT_LONG[1]}`,
                 {
                     method: 'GET'
                 }
