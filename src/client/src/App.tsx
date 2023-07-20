@@ -15,7 +15,7 @@ const App = () => {
                 body: JSON.stringify({ postcode })
             })
             const parsedMessage = await response.json()
-            setMessage(parsedMessage.coords)
+            setMessage(JSON.stringify(parsedMessage.data))
         } catch (error) {
             console.error(error)
             setMessage('Whoopsy daisy there was an error lol')
@@ -43,7 +43,7 @@ const App = () => {
                         value={postcode}
                         placeholder="enter your postcode"
                         onChange={(e) => setPostcode(e.target.value)}
-                        pattern="(GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY]))))\s?[0-9][A-Z-[CIKMOV]]{2})"
+                        pattern="([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})"
                     />
                     <br />
                     <button type="submit">Submit your postcode</button>

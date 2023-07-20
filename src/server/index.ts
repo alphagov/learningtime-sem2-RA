@@ -3,6 +3,7 @@ import path from 'path'
 import * as bodyParser from 'body-parser'
 import cors from 'cors'
 import { getCoords } from './utils/getCoords'
+import { getPoliceAPIData } from './utils/getPoliceAPIData'
 
 const app: Express = express()
 const port = 5000
@@ -22,11 +23,13 @@ app.post('/api/postcode', async (request: Request, response: Response) => {
 
     // Process the request and prepare the response data
     const coords = await getCoords(parsedPostcode)
-
-    const responseData = `This is your Co-ords ${coords}`
-
+    if (Array.isArray(coords)) {
+        const policeAPIData = await getPoliceAPIData(coords.reverse())
+        response.json({ data: policeAPIData })
+    } else {
+        response.json({ data: coords })
+    }
     // Send the response data back to the client
-    response.json({ coords: responseData })
 })
 
 app.listen(port, () => {
