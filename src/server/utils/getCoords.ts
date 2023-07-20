@@ -1,7 +1,7 @@
 export const getCoords = async (
     postcode: string
 ): Promise<number[] | string> => {
-    const url = new URL(`${postcode}`, 'https://api.postcodes.io/postcodes/')
+    const url = `https://api.postcodes.io/postcodes/${postcode}`
     const postcodeApiResponse = await fetch(url, {
         method: 'GET'
     })
