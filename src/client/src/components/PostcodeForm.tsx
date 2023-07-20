@@ -45,13 +45,7 @@ export const PostcodeForm = ({
     }
     return (
         <>
-            <form
-                style={{
-                    display: 'flex',
-                    gap: '5px'
-                }}
-                onSubmit={handleForm}
-            >
+            <form className="postcodeForm" onSubmit={handleForm}>
                 <label>Enter your postcode:</label>
                 <input
                     type="text"
