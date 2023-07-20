@@ -10,6 +10,9 @@ import {
 const fetchSpy = jest.spyOn(global, 'fetch')
 
 describe('tests for fetch policeAPI response', () => {
+    beforeEach(() => {
+        jest.resetAllMocks()
+    })
     it('fetches all crime data for a given longitude and latitude', async () => {
         when(fetchSpy)
             .calledWith(

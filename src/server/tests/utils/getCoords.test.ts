@@ -11,6 +11,9 @@ import {
 const fetchSpy = jest.spyOn(global, 'fetch')
 
 describe('Testing the get coordinates function', () => {
+    beforeEach(() => {
+        jest.resetAllMocks()
+    })
     it('fetches the longitude and latitude for a given postcode and returns this in an array', async () => {
         when(fetchSpy)
             .calledWith(
