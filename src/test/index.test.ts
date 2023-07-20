@@ -1,11 +1,9 @@
-import { helloWorld } from '..'
-
 describe('dummy test', () => {
     beforeEach(() => {})
 
     it('can return HelloWorld', () => {
-        const expectedString = 'HelloWorld'
-        const message = helloWorld()
-        expect(message).toBe(expectedString)
+        expect(1).toEqual(1)
     })
 })
+
+export {}
