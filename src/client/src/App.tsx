@@ -8,6 +8,11 @@ const App = () => {
 
     const handleForm = async (event: FormEvent) => {
         event.preventDefault()
+        if (!postcode || postcode.length === 0) {
+            setMessage('Please enter a valid postcode')
+            setData({})
+            return
+        }
         try {
             const response = await fetch('http://localhost:5000/api/postcode', {
                 method: 'POST',
