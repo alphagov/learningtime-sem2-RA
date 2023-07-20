@@ -3,7 +3,7 @@ import { when } from 'jest-when'
 import {
     TEST_POLICE_API_FETCH_RESPONSE,
     TEST_POLICE_API_FETCH_RESPONSE_NO_DATA,
-    TEST_POLICE_API_RESPONSE_DATA,
+    TEST_POLICE_API_RESPONSE_DATA_GROUPED_BY_CRIME_TYPE,
     TEST_VALID_POLICE_API_LAT_LONG
 } from '../testConstants'
 
@@ -24,7 +24,9 @@ describe('tests for fetch policeAPI response', () => {
             .mockResolvedValue(TEST_POLICE_API_FETCH_RESPONSE)
         const res = await getPoliceAPIData(TEST_VALID_POLICE_API_LAT_LONG)
 
-        expect(res).toStrictEqual(TEST_POLICE_API_RESPONSE_DATA)
+        expect(res).toStrictEqual(
+            TEST_POLICE_API_RESPONSE_DATA_GROUPED_BY_CRIME_TYPE
+        )
     })
     it('handles the case where no data is returned', async () => {
         when(fetchSpy)
