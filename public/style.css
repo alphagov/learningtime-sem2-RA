@@ -36,9 +36,15 @@ td {
 .postcodeForm {
     padding: 10px;
     display: flex;
-    gap: 2.5px;
+    gap: 5px;
 }
 
 .postcodeInput {
+    padding: 2px;
+}
+
+.monthSelector {
+    display: flex;
+    gap: 2px;
     padding: 2px;
 }
