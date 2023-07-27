@@ -11,7 +11,7 @@ interface MapProps {
 export const Map = ({ coords, data }: MapProps) => {
     const ChangeView = ({ center }) => {
         const map = useMap()
-        map.flyTo(center, 13)
+        map.flyTo(center, 14)
         return null
     }
 
@@ -26,7 +26,7 @@ export const Map = ({ coords, data }: MapProps) => {
                     <button>all</button>
                     <MapContainer
                         center={coords}
-                        zoom={13}
+                        zoom={14}
                         scrollWheelZoom={false}
                     >
                         <ChangeView center={coords} />
