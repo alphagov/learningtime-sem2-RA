@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { PoliceAPIResponse } from '../../server/utils/types/policeAPI'
 import { PostcodeForm } from './components/PostcodeForm'
 import { DataTable } from './components/DataTable'
+import { Map } from './components/MapComponent'
 
 const App = () => {
     const [postcode, setPostcode] = useState('')
@@ -25,6 +26,9 @@ const App = () => {
             <div className="errorMessage">{message}</div>
             <div className="dataTable">
                 <DataTable data={data} />
+            </div>
+            <div id="map">
+                <Map></Map>
             </div>
         </>
     )
