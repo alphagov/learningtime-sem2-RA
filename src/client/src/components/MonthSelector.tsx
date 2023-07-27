@@ -9,7 +9,10 @@ export const MonthSelector = ({ setMonth }: MonthSelectorProps) => {
                 <label>Month:</label>
                 <select
                     name="month"
-                    onChange={(month) => setMonth(month.target.value)}
+                    onChange={(e) => {
+                        e.preventDefault()
+                        setMonth(e.target.value)
+                    }}
                 >
                     <option value="2020-06">June 2020</option>
                     <option value="2020-07">Jul 2020</option>
