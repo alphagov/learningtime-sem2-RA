@@ -1,20 +1,28 @@
+import { LatLngExpression } from 'leaflet'
 import React from 'react'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
 
-export const Map = () => {
+interface MapProps {
+    coords: LatLngExpression
+}
+
+export const Map = ({ coords }: MapProps) => {
+    const ChangeView = ({ center }) => {
+        const map = useMap()
+        map.flyTo(center)
+        return null
+    }
+
     return (
-        <MapContainer
-            center={[51.505, -0.09]}
-            zoom={13}
-            scrollWheelZoom={false}
-        >
+        <MapContainer center={coords} zoom={13} scrollWheelZoom={false}>
+            <ChangeView center={coords} />
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={[51.505, -0.09]}>
+            <Marker position={coords}>
                 <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
+                    Your postcode location. <br /> Is here.
                 </Popup>
             </Marker>
         </MapContainer>
