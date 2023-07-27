@@ -1,5 +1,6 @@
-import { FormEvent } from 'react'
+import { FormEvent, useState } from 'react'
 import { PoliceAPIResponse } from '../../../server/utils/types/policeAPI'
+import { MonthSelector } from './MonthSelector'
 interface PostcodeFormProps {
     postcode: string
     data: Record<string, PoliceAPIResponse[]>
@@ -15,6 +16,8 @@ export const PostcodeForm = ({
     setData,
     setPostcode
 }: PostcodeFormProps) => {
+    const [month, setMonth] = useState('')
+
     const handleForm = async (event: FormEvent) => {
         event.preventDefault()
         if (!postcode || postcode.length === 0) {
@@ -28,7 +31,7 @@ export const PostcodeForm = ({
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ postcode })
+                body: JSON.stringify({ postcode, month })
             })
             const parsedMessage = await response.json()
             if (typeof parsedMessage.data == 'string') {
@@ -46,6 +49,7 @@ export const PostcodeForm = ({
     return (
         <>
             <form className="postcodeForm" onSubmit={handleForm}>
+                <MonthSelector setMonth={setMonth}></MonthSelector>
                 <label>Enter your postcode:</label>
                 <input
                     type="text"
