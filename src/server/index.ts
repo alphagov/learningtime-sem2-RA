@@ -18,13 +18,13 @@ app.get('/', (_request: Request, response: Response) => {
 })
 
 app.post('/api/postcode', async (request: Request, response: Response) => {
-    const { postcode } = request.body
+    const { postcode, month } = request.body
     const parsedPostcode: string = postcode.replace(' ', '').toUpperCase()
 
     // Process the request and prepare the response data
     const coords = await getCoords(parsedPostcode)
     if (Array.isArray(coords)) {
-        const policeAPIData = await getPoliceAPIData(coords)
+        const policeAPIData = await getPoliceAPIData(coords, month)
         response.send({ data: policeAPIData })
     } else {
         response.json({ data: coords })
