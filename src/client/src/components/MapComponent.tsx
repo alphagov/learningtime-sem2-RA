@@ -33,7 +33,9 @@ export const Map = ({ coords, data }: MapProps) => {
     )
 }
 
-const createMarkers = (data: Record<string, PoliceAPIResponse[]>) => {
+const createMarkers = (
+    data: Record<string, PoliceAPIResponse[]>
+): React.JSX.Element[] => {
     return Object.keys(data).flatMap((key) => {
         const dataArr = data[key]
         return dataArr.flatMap((crimeEntry) => (
