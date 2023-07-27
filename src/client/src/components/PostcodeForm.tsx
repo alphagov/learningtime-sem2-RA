@@ -1,12 +1,14 @@
 import { FormEvent, useState } from 'react'
 import { PoliceAPIResponse } from '../../../server/utils/types/policeAPI'
 import { MonthSelector } from './MonthSelector'
+import { LatLngExpression } from 'leaflet'
 interface PostcodeFormProps {
     postcode: string
     data: Record<string, PoliceAPIResponse[]>
     setMessage: (message: string) => void
     setData: (data: Record<string, PoliceAPIResponse[]>) => void
     setPostcode: (postcode: string) => void
+    setCoords: (coords: LatLngExpression) => void
 }
 
 export const PostcodeForm = ({
@@ -14,9 +16,10 @@ export const PostcodeForm = ({
     data,
     setMessage,
     setData,
-    setPostcode
+    setPostcode,
+    setCoords
 }: PostcodeFormProps) => {
-    const [month, setMonth] = useState('')
+    const [month, setMonth] = useState('2022-06')
 
     const handleForm = async (event: FormEvent) => {
         event.preventDefault()
@@ -39,6 +42,7 @@ export const PostcodeForm = ({
                 setData({})
             } else {
                 setData({ ...data, ...parsedMessage.data })
+                setCoords(parsedMessage.coords)
                 setMessage('')
             }
         } catch (error) {

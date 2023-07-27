@@ -22,12 +22,12 @@ app.post('/api/postcode', async (request: Request, response: Response) => {
     const parsedPostcode: string = postcode.replace(' ', '').toUpperCase()
 
     // Process the request and prepare the response data
-    const coords = await getCoords(parsedPostcode)
-    if (Array.isArray(coords)) {
-        const policeAPIData = await getPoliceAPIData(coords, month)
-        response.send({ data: policeAPIData })
+    const coordsResponse = await getCoords(parsedPostcode)
+    if (Array.isArray(coordsResponse)) {
+        const policeAPIData = await getPoliceAPIData(coordsResponse, month)
+        response.send({ data: policeAPIData, coords: coordsResponse })
     } else {
-        response.json({ data: coords })
+        response.json({ data: coordsResponse })
     }
     // Send the response data back to the client
 })
