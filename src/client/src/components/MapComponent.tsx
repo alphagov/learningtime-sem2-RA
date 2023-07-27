@@ -15,17 +15,28 @@ export const Map = ({ coords, data }: MapProps) => {
         return null
     }
 
+    const markers = createMarkers(data)
+    const buttons = createFilterButtons(Object.keys(data))
+
     return (
         <>
             {Object.keys(data).length > 0 ? (
-                <MapContainer center={coords} zoom={13} scrollWheelZoom={false}>
-                    <ChangeView center={coords} />
-                    <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    {Object.keys(data).length > 0 ? createMarkers(data) : ''}
-                </MapContainer>
+                <>
+                    <div>{buttons}</div>
+                    <button>all</button>
+                    <MapContainer
+                        center={coords}
+                        zoom={13}
+                        scrollWheelZoom={false}
+                    >
+                        <ChangeView center={coords} />
+                        <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        {markers}
+                    </MapContainer>
+                </>
             ) : (
                 ''
             )}
@@ -40,7 +51,7 @@ const createMarkers = (
         const dataArr = data[key]
         return dataArr.flatMap((crimeEntry) => (
             <Marker
-                key={crimeEntry.id}
+                key={`${crimeEntry.category}/${crimeEntry.id}`}
                 position={[
                     Number(crimeEntry.location.latitude),
                     Number(crimeEntry.location.longitude)
@@ -51,3 +62,6 @@ const createMarkers = (
         ))
     })
 }
+
+const createFilterButtons = (keys: string[]) =>
+    keys.flatMap((key) => <button>{key}</button>)
