@@ -31,7 +31,7 @@ const App = () => {
                 <DataTable data={data} />
             </div>
             <div id="map">
-                <Map coords={coords}></Map>
+                <Map coords={coords} data={data}></Map>
             </div>
         </>
     )
