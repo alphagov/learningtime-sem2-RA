@@ -1,6 +1,14 @@
 import { LatLngExpression } from 'leaflet'
 import React from 'react'
-import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
+import {
+    Circle,
+    LayerGroup,
+    MapContainer,
+    Marker,
+    Popup,
+    TileLayer,
+    useMap
+} from 'react-leaflet'
 import { PoliceAPIResponse } from '../../../server/utils/types/policeAPI'
 
 interface MapProps {
@@ -34,7 +42,14 @@ export const Map = ({ coords, data }: MapProps) => {
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         />
-                        {markers}
+                        <LayerGroup>
+                            <Circle
+                                center={coords}
+                                pathOptions={{ fillColor: 'blue' }}
+                                radius={1609.34}
+                            />
+                            {markers}
+                        </LayerGroup>
                     </MapContainer>
                 </>
             ) : (
