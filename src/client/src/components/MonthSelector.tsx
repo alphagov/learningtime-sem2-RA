@@ -5,7 +5,7 @@ interface MonthSelectorProps {
 export const MonthSelector = ({ setMonth }: MonthSelectorProps) => {
     return (
         <>
-            <div className="monthSelctor">
+            <div className="monthSelector">
                 <label>Month:</label>
                 <select
                     name="month"
