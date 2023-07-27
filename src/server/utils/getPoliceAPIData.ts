@@ -1,10 +1,11 @@
 import { groupBy } from './groupByObjectKey'
 import { PoliceAPIResponse } from './types/policeAPI'
 
-export const getPoliceAPIData = async ([lat, long]: number[]): Promise<
-    Record<string, PoliceAPIResponse[]> | string
-> => {
-    const url = `https://data.police.uk/api/crimes-street/all-crime?lat=${lat}&lng=${long}`
+export const getPoliceAPIData = async (
+    [lat, long]: number[],
+    month: string
+): Promise<Record<string, PoliceAPIResponse[]> | string> => {
+    const url = `https://data.police.uk/api/crimes-street/all-crime?lat=${lat}&lng=${long}&date=${month}`
     const data = await fetch(url, {
         method: 'GET'
     })
