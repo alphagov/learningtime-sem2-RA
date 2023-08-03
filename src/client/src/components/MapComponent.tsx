@@ -2,9 +2,9 @@ import { LatLngExpression } from 'leaflet'
 import React from 'react'
 import {
     Circle,
+    CircleMarker,
     LayerGroup,
     MapContainer,
-    Marker,
     Popup,
     TileLayer,
     useMap
@@ -45,10 +45,12 @@ export const Map = ({ coords, data }: MapProps) => {
                         <LayerGroup>
                             <Circle
                                 center={coords}
-                                pathOptions={{ fillColor: 'blue' }}
                                 radius={1609.34}
+                                fillOpacity={0.25}
+                                fillColor="white"
+                                color="black"
                             />
-                            {markers}
+                            {...markers}
                         </LayerGroup>
                     </MapContainer>
                 </>
@@ -65,18 +67,37 @@ const createMarkers = (
     return Object.keys(data).flatMap((key) => {
         const dataArr = data[key]
         return dataArr.flatMap((crimeEntry) => (
-            <Marker
+            <CircleMarker
                 key={`${crimeEntry.category}/${crimeEntry.id}`}
-                position={[
+                center={[
                     Number(crimeEntry.location.latitude),
                     Number(crimeEntry.location.longitude)
                 ]}
+                color={colourDict[crimeEntry.category]}
+                radius={5}
+                fillOpacity={1}
             >
                 <Popup>{crimeEntry.category}</Popup>
-            </Marker>
+            </CircleMarker>
         ))
     })
 }
 
 const createFilterButtons = (keys: string[]) =>
-    keys.flatMap((key) => <button>{key}</button>)
+    keys.flatMap((key) => <button id={key}>{key}</button>)
+
+const colourDict = {
+    'anti-social-behaviour': '#1010ff',
+    burglary: '#ff1010',
+    'criminal-damage-arson': '#10ff10',
+    drugs: '#ffff10',
+    'other-theft': '#ff10ff',
+    'possession-of-weapons': '#10ffff',
+    'public-order': '#a010ff',
+    robbery: '#ff6010',
+    shoplifting: '#10ff60',
+    'theft-from-the-person': '#60ff10',
+    'vehicle-crime': '#0050ff',
+    'violent-crime': '#ff1060',
+    'other-crime': '#60ffff'
+}
