@@ -1,5 +1,5 @@
 import { LatLngExpression } from 'leaflet'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     Circle,
     CircleMarker,
@@ -23,15 +23,28 @@ export const Map = ({ coords, data }: MapProps) => {
         return null
     }
 
-    const markers = createMarkers(data)
-    const buttons = createFilterButtons(Object.keys(data))
+    const [markers, setMarkers] = useState([] as React.JSX.Element[])
+    const buttons = createFilterButtons(Object.keys(data), setMarkers, data)
+
+    useEffect(() => {
+        const markers = createMarkers(data)
+        setMarkers(markers)
+    }, [data])
 
     return (
         <>
             {Object.keys(data).length > 0 ? (
                 <>
-                    <div>{buttons}</div>
-                    <button>all</button>
+                    <div>
+                        {buttons}
+                        <button
+                            onClick={() => {
+                                setMarkers(createMarkers(data))
+                            }}
+                        >
+                            All
+                        </button>
+                    </div>
                     <MapContainer
                         center={coords}
                         zoom={14}
@@ -83,8 +96,26 @@ const createMarkers = (
     })
 }
 
-const createFilterButtons = (keys: string[]) =>
-    keys.flatMap((key) => <button id={key}>{key}</button>)
+const createFilterButtons = (
+    keys: string[],
+    setMarkers: (markers: React.JSX.Element[]) => void,
+    data: Record<string, PoliceAPIResponse[]>
+) =>
+    keys.flatMap((key) => (
+        <button
+            onClick={() => {
+                const markers = createMarkers(data)
+                const newMarkers = markers.filter(
+                    (marker) =>
+                        marker.key?.toString().split('/')[0] === `${key}`
+                )
+                setMarkers(newMarkers)
+            }}
+            id={key}
+        >
+            {key}
+        </button>
+    ))
 
 const colourDict = {
     'anti-social-behaviour': '#1010ff',
