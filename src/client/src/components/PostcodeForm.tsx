@@ -9,6 +9,7 @@ interface PostcodeFormProps {
     setData: (data: Record<string, PoliceAPIResponse[]>) => void
     setPostcode: (postcode: string) => void
     setCoords: (coords: LatLngExpression) => void
+    style?: Record<string, unknown>
 }
 
 export const PostcodeForm = ({
@@ -17,7 +18,8 @@ export const PostcodeForm = ({
     setMessage,
     setData,
     setPostcode,
-    setCoords
+    setCoords,
+    style
 }: PostcodeFormProps) => {
     const [month, setMonth] = useState('2022-06')
 
@@ -52,22 +54,24 @@ export const PostcodeForm = ({
     }
     return (
         <>
-            <form className="postcodeForm" onSubmit={handleForm}>
+            <div className="postcodeForm" style={style}>
                 <MonthSelector setMonth={setMonth}></MonthSelector>
-                <label>Enter your postcode:</label>
-                <input
-                    type="text"
-                    id="postcode"
-                    name="postcode"
-                    value={postcode}
-                    placeholder="enter your postcode"
-                    onChange={(e) => setPostcode(e.target.value)}
-                    pattern="([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})"
-                    required
-                />
-                <br />
-                <button type="submit">Submit your postcode</button>
-            </form>
+                <form className="postcodeInput" onSubmit={handleForm}>
+                    <label>Enter your postcode:</label>
+                    <input
+                        type="text"
+                        id="postcode"
+                        name="postcode"
+                        value={postcode}
+                        placeholder="enter your postcode"
+                        onChange={(e) => setPostcode(e.target.value)}
+                        pattern="([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})"
+                        required
+                    />
+                    <br />
+                    <button type="submit">Submit your postcode</button>
+                </form>
+            </div>
         </>
     )
 }

@@ -81,12 +81,12 @@ const createMarkers = (
         const dataArr = data[key]
         return dataArr.flatMap((crimeEntry) => (
             <CircleMarker
+                className={crimeEntry.category}
                 key={`${crimeEntry.category}/${crimeEntry.id}`}
                 center={[
                     Number(crimeEntry.location.latitude),
                     Number(crimeEntry.location.longitude)
                 ]}
-                color={colourDict[crimeEntry.category]}
                 radius={5}
                 fillOpacity={1}
             >
@@ -103,6 +103,7 @@ const createFilterButtons = (
 ) =>
     keys.flatMap((key) => (
         <button
+            className={key}
             onClick={() => {
                 const markers = createMarkers(data)
                 const newMarkers = markers.filter(
@@ -116,19 +117,3 @@ const createFilterButtons = (
             {key}
         </button>
     ))
-
-const colourDict = {
-    'anti-social-behaviour': '#1010ff',
-    burglary: '#ff1010',
-    'criminal-damage-arson': '#10ff10',
-    drugs: '#ffff10',
-    'other-theft': '#ff10ff',
-    'possession-of-weapons': '#10ffff',
-    'public-order': '#a010ff',
-    robbery: '#ff6010',
-    shoplifting: '#10ff60',
-    'theft-from-the-person': '#60ff10',
-    'vehicle-crime': '#0050ff',
-    'violent-crime': '#ff1060',
-    'other-crime': '#60ffff'
-}
