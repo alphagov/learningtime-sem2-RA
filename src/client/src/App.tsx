@@ -34,13 +34,11 @@ const App = () => {
                 <div className="dataTable">
                     <DataTable data={data}></DataTable>
                 </div>
-                <div id="map">
+                <div className="mapContainer">
                     <Map coords={coords} data={data}></Map>
                 </div>
             </div>
-            <div>
-                <Footer />
-            </div>
+            <Footer />
         </>
     )
 }

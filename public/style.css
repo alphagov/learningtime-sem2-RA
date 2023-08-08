@@ -5,10 +5,20 @@ html {
 * {
     outline: 1px black solid;
 }
+body {
+    margin: 0;
+}
 
 #root {
     height: 100vh;
     width: 100vw;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        'main'
+        'footer';
+    grid-template-rows: 1fr;
+    display: grid;
 }
 .logo {
     position: absolute;
@@ -28,13 +38,12 @@ html {
     position: absolute;
     top: 0;
     width: 100vw;
-    height: 10vh;
-    align-content: center;
-    background-color: rgb(32, 7, 7);
+    height: 6vh;
+    background-color: rgb(130 125 125);
     display: flex;
-    gap: 10px;
     justify-content: center;
-    float: top;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 button {
@@ -46,12 +55,15 @@ button {
 }
 
 .Footer {
+    position: relative;
+    background-color: red;
     display: flex;
-    position: fixed;
-    bottom: 0;
-    width: 100vw;
     height: 10vh;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-bottom: auto;
+    flex-shrink: 0;
 }
 
 .Title {
@@ -59,7 +71,7 @@ button {
 }
 
 .content {
-    height: 90vh;
+    height: fit-content;
     margin: 40px auto;
     max-width: 75vw;
     line-height: 1.6;
@@ -91,7 +103,6 @@ td {
     display: flex;
     justify-content: space-evenly;
     gap: 5px;
-    padding: 15px;
 }
 
 .monthSelector {
@@ -105,12 +116,6 @@ td {
     gap: 5px;
 }
 
-.monthSelector {
-    display: flex;
-    gap: 2px;
-    padding: 2px;
-}
-
 .leaflet-container {
     display: flex;
     width: 100%;
@@ -119,6 +124,13 @@ td {
 
 button:hover {
     filter: brightness(110%);
+}
+#map {
+    position: relative;
+}
+.mapContainer {
+    position: relative;
+    height: fit-content;
 }
 
 .anti-social-behaviour.leaflet-interactive {
@@ -173,9 +185,9 @@ button:hover {
     fill: #214304;
     stroke: #214304;
 }
-.leaflet-layer,
+/* .leaflet-layer,
 .leaflet-control-zoom-in,
 .leaflet-control-zoom-out,
 .leaflet-control-attribution {
     filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
-}
+} */

@@ -46,6 +46,7 @@ export const Map = ({ coords, data }: MapProps) => {
                         </button>
                     </div>
                     <MapContainer
+                        id="map"
                         center={coords}
                         zoom={14}
                         scrollWheelZoom={false}
