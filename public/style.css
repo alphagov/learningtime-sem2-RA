@@ -14,11 +14,10 @@ body {
     width: 100vw;
     grid-gap: 10px;
     grid-template-columns: 1fr;
-    grid-template-areas:
-        'main'
-        'footer';
-    grid-template-rows: 1fr;
+    grid-template-areas: 'navbar' 'main' 'footer';
+    grid-template-rows: auto 1fr auto;
     display: grid;
+    margin: 0;
 }
 .logo {
     position: absolute;
@@ -35,8 +34,7 @@ body {
 }
 
 .Navbar {
-    position: absolute;
-    top: 0;
+    grid-area: navbar;
     width: 100vw;
     height: 6vh;
     background-color: rgb(130 125 125);
@@ -44,6 +42,9 @@ body {
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 button {
@@ -68,6 +69,7 @@ button {
 
 .Title {
     font-size: large;
+    width: 75vw;
 }
 
 .content {
@@ -76,7 +78,7 @@ button {
     max-width: 75vw;
     line-height: 1.6;
     font-size: 18px;
-    padding: 16px;
+    padding: 15px 5px 10px 5px;
     display: block;
 }
 .dataTable {
@@ -107,7 +109,6 @@ td {
 
 .monthSelector {
     display: flex;
-    justify-content: flex-start;
 }
 
 .postcodeInput {

@@ -20,16 +20,14 @@ const App = () => {
                 <div className="Title">
                     <h1>Find local crime data</h1>
                 </div>
-                <div>
-                    <PostcodeForm
-                        postcode={postcode}
-                        data={data}
-                        setMessage={setMessage}
-                        setPostcode={setPostcode}
-                        setData={setData}
-                        setCoords={setCoords}
-                    ></PostcodeForm>
-                </div>
+                <PostcodeForm
+                    postcode={postcode}
+                    data={data}
+                    setMessage={setMessage}
+                    setPostcode={setPostcode}
+                    setData={setData}
+                    setCoords={setCoords}
+                ></PostcodeForm>
                 <div className="errorMessage">{message}</div>
                 <div className="dataTable">
                     <DataTable data={data}></DataTable>
