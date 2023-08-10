@@ -12,10 +12,13 @@ const App = () => {
     const [message, setMessage] = useState('')
     const [data, setData] = useState({} as Record<string, PoliceAPIResponse[]>)
     const [coords, setCoords] = useState([51.505, -0.09] as LatLngExpression)
+    const [scrollHeight, setScrollHeight] = useState(0)
+
+    window.addEventListener('scroll', () => setScrollHeight(window.scrollY))
 
     return (
         <>
-            <NavBar />
+            <NavBar scrollHeight={scrollHeight > 150 ? 150 : scrollHeight} />
             <div className="content">
                 <div className="Title">
                     <h1>Find local crime data</h1>
