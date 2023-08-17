@@ -50,6 +50,7 @@ export const MonthSelector = ({ setMonth }: MonthSelectorProps) => {
                     <option value="2023-03">Mar 2023</option>
                     <option value="2023-04">Apr 2023</option>
                     <option value="2023-05">May 2023</option>
+                    <option value="2023-06">Jun 2023</option>
                 </select>
             </div>
         </>

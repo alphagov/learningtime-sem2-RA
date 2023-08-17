@@ -1,52 +1,189 @@
+@font-face {
+    font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: normal;
+    src: url(https://www.gov.uk/assets/static/light-94a07e06a1-v2-01565b0034e61d4609689bbb7ae0be844701f3812c8fe029fa1659b7ef3aa94f.woff2)
+        format('woff2');
+    font-display: fallback;
+}
+@media only screen and (max-width: 660px) {
+    .content {
+        max-width: 95vw;
+    }
+}
+
+@media only screen and (min-width: 660px) {
+    .content {
+        max-width: 75vw;
+    }
+}
+
 html {
-    background-color: #f6f5f3;
-    font-family:
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        'Segoe UI',
-        Roboto,
-        Oxygen,
-        Ubuntu,
-        Cantarell,
-        'Open Sans',
-        'Helvetica Neue',
-        sans-serif;
+    background-color: #ffffff;
+    font-family: 'GDS Transport', arial, sans-serif;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-weight: 575;
 }
 
 body {
-    margin: 40px auto;
-    max-width: 650px;
-    line-height: 1.6;
-    font-size: 18px;
-    padding: 0 10px;
-    display: block;
+    margin: 0;
 }
 
+strong {
+    font-weight: 900;
+}
+#root {
+    height: 100vh;
+    width: 100vw;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'navbar' 'main' 'footer';
+    grid-template-rows: auto 1fr auto;
+    display: grid;
+    margin: 0;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+}
+
+.navElement {
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+    width: 100%;
+    font-weight: 900;
+}
+
+.Navbar {
+    grid-area: navbar;
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+svg {
+    margin-left: 25px;
+    transition-duration: 1s;
+    z-index: 2;
+}
+
+#darkMode {
+    background: transparent;
+    border: none;
+    font-size: 0;
+    box-shadow: none;
+    transition-duration: 1s;
+}
+
+#darkMode :active {
+    transform: rotate(180deg);
+}
+
+button {
+    background-color: #f3f6f8;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 1px 2px 2px;
+    transition: all 0.2s ease;
+    font-size: 16px;
+}
+
+.Footer {
+    background-color: #455173;
+    color: #ffffff;
+    display: flex;
+    height: 10vh;
+    grid-area: footer;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-bottom: auto;
+    flex-shrink: 0;
+}
+
+.Title {
+    font-size: large;
+    width: 75vw;
+    padding-left: 35px;
+}
+
+.content {
+    height: 90%;
+    margin: 0px auto;
+    line-height: 1.6;
+    font-size: 18px;
+    padding: 15px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 9px 11px 37px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 5px 5px 5px 5px;
+}
+.dataTable {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+}
+table {
+    min-width: 50%;
+    grid-area: table;
+}
+.dataText {
+    grid-area: text;
+}
 th {
-    padding: 5px;
-    text-align: left;
+    text-align: center;
+    font-weight: 25;
 }
 
 td {
-    text-align: left;
-    padding-right: 20px;
+    text-align: center;
+}
+
+td th,
+td,
+tr,
+th {
+    outline: 2px solid black;
+}
+
+.crimeName {
+    vertical-align: baseline;
+    text-indent: 2%;
+    text-align: unset;
 }
 
 .postcodeForm {
     padding: 10px;
     display: flex;
+    justify-content: space-evenly;
     gap: 5px;
-}
-
-.postcodeInput {
-    padding: 2px;
+    flex-wrap: wrap;
 }
 
 .monthSelector {
     display: flex;
-    gap: 2px;
-    padding: 2px;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.postcodeInput {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .leaflet-container {
@@ -54,3 +191,35 @@ td {
     width: 100%;
     height: 75vh;
 }
+
+button:hover {
+    filter: brightness(110%);
+}
+#map {
+    position: relative;
+    width: 95%;
+    padding: 10px;
+}
+.mapContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 10px;
+    background-color: #ffffff;
+}
+select {
+    border-radius: 7px;
+    font-size: 16px;
+}
+input[type='text'] {
+    font-size: 16px;
+}
+
+/* .leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+} */

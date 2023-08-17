@@ -2,18 +2,18 @@ import { FormEvent, useState } from 'react'
 import { PoliceAPIResponse } from '../../../server/utils/types/policeAPI'
 import { MonthSelector } from './MonthSelector'
 import { LatLngExpression } from 'leaflet'
+import { sortObject } from '../../../server/utils/types/sortObject'
 interface PostcodeFormProps {
     postcode: string
-    data: Record<string, PoliceAPIResponse[]>
     setMessage: (message: string) => void
     setData: (data: Record<string, PoliceAPIResponse[]>) => void
     setPostcode: (postcode: string) => void
     setCoords: (coords: LatLngExpression) => void
+    style?: Record<string, unknown>
 }
 
 export const PostcodeForm = ({
     postcode,
-    data,
     setMessage,
     setData,
     setPostcode,
@@ -41,7 +41,7 @@ export const PostcodeForm = ({
                 setMessage(parsedMessage.data)
                 setData({})
             } else {
-                setData({ ...data, ...parsedMessage.data })
+                setData(sortObject(parsedMessage.data))
                 setCoords(parsedMessage.coords)
                 setMessage('')
             }
@@ -52,22 +52,24 @@ export const PostcodeForm = ({
     }
     return (
         <>
-            <form className="postcodeForm" onSubmit={handleForm}>
+            <div className="postcodeForm">
                 <MonthSelector setMonth={setMonth}></MonthSelector>
-                <label>Enter your postcode:</label>
-                <input
-                    type="text"
-                    id="postcode"
-                    name="postcode"
-                    value={postcode}
-                    placeholder="enter your postcode"
-                    onChange={(e) => setPostcode(e.target.value)}
-                    pattern="([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})"
-                    required
-                />
-                <br />
-                <button type="submit">Submit your postcode</button>
-            </form>
+                <form className="postcodeInput" onSubmit={handleForm}>
+                    <label>Enter your postcode:</label>
+                    <input
+                        type="text"
+                        id="postcode"
+                        name="postcode"
+                        placeholder="enter your postcode"
+                        value={postcode}
+                        onChange={(e) => setPostcode(e.target.value)}
+                        pattern="([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})"
+                        required
+                    />
+                    <br />
+                    <button type="submit">Submit your postcode</button>
+                </form>
+            </div>
         </>
     )
 }

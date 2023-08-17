@@ -17,7 +17,7 @@ interface MapProps {
 }
 
 export const Map = ({ coords, data }: MapProps) => {
-    const ChangeView = ({ center }) => {
+    const ChangeView = ({ center }: { center: LatLngExpression }) => {
         const map = useMap()
         map.flyTo(center, 14)
         return null
@@ -35,7 +35,7 @@ export const Map = ({ coords, data }: MapProps) => {
         <>
             {Object.keys(data).length > 0 ? (
                 <>
-                    <div>
+                    <div className="buttonContainer">
                         {buttons}
                         <button
                             onClick={() => {
@@ -46,6 +46,8 @@ export const Map = ({ coords, data }: MapProps) => {
                         </button>
                     </div>
                     <MapContainer
+                        preferCanvas={true}
+                        id="map"
                         center={coords}
                         zoom={14}
                         scrollWheelZoom={false}
@@ -81,14 +83,15 @@ const createMarkers = (
         const dataArr = data[key]
         return dataArr.flatMap((crimeEntry) => (
             <CircleMarker
+                className={crimeEntry.category}
                 key={`${crimeEntry.category}/${crimeEntry.id}`}
                 center={[
                     Number(crimeEntry.location.latitude),
                     Number(crimeEntry.location.longitude)
                 ]}
-                color={colourDict[crimeEntry.category]}
                 radius={5}
                 fillOpacity={1}
+                color={colourDict[key]}
             >
                 <Popup>{crimeEntry.category}</Popup>
             </CircleMarker>
@@ -103,6 +106,7 @@ const createFilterButtons = (
 ) =>
     keys.flatMap((key) => (
         <button
+            className={key}
             onClick={() => {
                 const markers = createMarkers(data)
                 const newMarkers = markers.filter(
@@ -117,18 +121,19 @@ const createFilterButtons = (
         </button>
     ))
 
-const colourDict = {
-    'anti-social-behaviour': '#1010ff',
-    burglary: '#ff1010',
-    'criminal-damage-arson': '#10ff10',
-    drugs: '#ffff10',
-    'other-theft': '#ff10ff',
-    'possession-of-weapons': '#10ffff',
-    'public-order': '#a010ff',
-    robbery: '#ff6010',
-    shoplifting: '#10ff60',
-    'theft-from-the-person': '#60ff10',
-    'vehicle-crime': '#0050ff',
-    'violent-crime': '#ff1060',
-    'other-crime': '#60ffff'
+const colourDict: Record<string, string> = {
+    'anti-social-behaviour': '#b72424',
+    burglary: '#e37d00',
+    'bicycle-theft': '#3c1482',
+    'criminal-damage-arson': '#dec502',
+    drugs: '#5ccd00',
+    'other-theft': '#08d17d',
+    'possession-of-weapons': '#03b8af',
+    'public-order': '#0440ca',
+    robbery: '#23007b',
+    shoplifting: '#a50184',
+    'theft-from-the-person': '#6d6668',
+    'vehicle-crime': '#ff6bd8',
+    'violent-crime': '#572323',
+    'other-crime': '#214304'
 }
