@@ -35,7 +35,6 @@
         "husky": "^8.0.3",
         "leaflet": "^1.9.4",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0",
         "react-icons": "^4.10.1",
         "react-leaflet": "^4.2.1",
         "vite": "^4.4.3"
@@ -43,6 +42,7 @@
     "scripts": {
         "dev": "NODE_ENV=dev concurrently 'vite' 'nodemon --config src/server/nodemon.json src/server/index.ts'",
         "build": "tsc && vite build",
+        "start:build": "NODE_ENV=build  node dist/server/index.js ",
         "lint": "prettier . --check || exit 1 ; eslint . --max-warnings=0",
         "lint:fix": "prettier . --write ; eslint . --fix",
         "test": "jest"
