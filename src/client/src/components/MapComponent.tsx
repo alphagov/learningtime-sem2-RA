@@ -17,7 +17,7 @@ interface MapProps {
 }
 
 export const Map = ({ coords, data }: MapProps) => {
-    const ChangeView = ({ center }) => {
+    const ChangeView = ({ center }: { center: LatLngExpression }) => {
         const map = useMap()
         map.flyTo(center, 14)
         return null
@@ -35,7 +35,7 @@ export const Map = ({ coords, data }: MapProps) => {
         <>
             {Object.keys(data).length > 0 ? (
                 <>
-                    <div>
+                    <div className="buttonContainer">
                         {buttons}
                         <button
                             onClick={() => {
@@ -46,6 +46,7 @@ export const Map = ({ coords, data }: MapProps) => {
                         </button>
                     </div>
                     <MapContainer
+                        preferCanvas={true}
                         id="map"
                         center={coords}
                         zoom={14}
@@ -90,6 +91,7 @@ const createMarkers = (
                 ]}
                 radius={5}
                 fillOpacity={1}
+                color={colourDict[key]}
             >
                 <Popup>{crimeEntry.category}</Popup>
             </CircleMarker>
@@ -118,3 +120,20 @@ const createFilterButtons = (
             {key}
         </button>
     ))
+
+const colourDict: Record<string, string> = {
+    'anti-social-behaviour': '#b72424',
+    burglary: '#e37d00',
+    'bicycle-theft': '#3c1482',
+    'criminal-damage-arson': '#dec502',
+    drugs: '#5ccd00',
+    'other-theft': '#08d17d',
+    'possession-of-weapons': '#03b8af',
+    'public-order': '#0440ca',
+    robbery: '#23007b',
+    shoplifting: '#a50184',
+    'theft-from-the-person': '#6d6668',
+    'vehicle-crime': '#ff6bd8',
+    'violent-crime': '#572323',
+    'other-crime': '#214304'
+}

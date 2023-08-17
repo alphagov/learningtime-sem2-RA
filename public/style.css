@@ -1,14 +1,40 @@
+@font-face {
+    font-family: 'GDS Transport';
+    font-style: normal;
+    font-weight: normal;
+    src: url(https://www.gov.uk/assets/static/light-94a07e06a1-v2-01565b0034e61d4609689bbb7ae0be844701f3812c8fe029fa1659b7ef3aa94f.woff2)
+        format('woff2');
+    font-display: fallback;
+}
+@media only screen and (max-width: 660px) {
+    .content {
+        max-width: 95vw;
+    }
+}
+
+@media only screen and (min-width: 660px) {
+    .content {
+        max-width: 75vw;
+    }
+}
+
 html {
-    background-color: #f6f5f3;
-    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    font-family: 'GDS Transport', arial, sans-serif;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-weight: 575;
 }
-* {
-    outline: 1px black solid;
-}
+
 body {
     margin: 0;
 }
 
+strong {
+    font-weight: 900;
+}
 #root {
     height: 100vh;
     width: 100vw;
@@ -19,47 +45,68 @@ body {
     display: grid;
     margin: 0;
 }
-.logo {
-    position: absolute;
-    left: 0;
-    height: 100%;
-    width: auto;
+
+.buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
 }
 
 .navElement {
     display: flex;
     gap: 10px;
     justify-content: space-evenly;
-    width: 85%;
+    width: 100%;
+    font-weight: 900;
 }
 
 .Navbar {
     grid-area: navbar;
     width: 100vw;
-    height: 6vh;
+    height: fit-content;
     display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
     position: sticky;
     top: 0;
     z-index: 1;
-    clip-path: padding-box;
+}
+
+svg {
+    margin-left: 25px;
+    transition-duration: 1s;
+    z-index: 2;
+}
+
+#darkMode {
+    background: transparent;
+    border: none;
+    font-size: 0;
+    box-shadow: none;
+    transition-duration: 1s;
+}
+
+#darkMode :active {
+    transform: rotate(180deg);
 }
 
 button {
+    background-color: #f3f6f8;
     cursor: pointer;
-    border: black;
-    border-radius: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
     box-shadow: 1px 2px 2px;
     transition: all 0.2s ease;
+    font-size: 16px;
 }
 
 .Footer {
-    position: relative;
-    background-color: red;
+    background-color: #455173;
+    color: #ffffff;
     display: flex;
     height: 10vh;
+    grid-area: footer;
     justify-content: space-evenly;
     flex-wrap: wrap;
     align-content: center;
@@ -70,34 +117,52 @@ button {
 .Title {
     font-size: large;
     width: 75vw;
+    padding-left: 35px;
 }
 
 .content {
-    height: fit-content;
-    margin: 40px auto;
-    max-width: 75vw;
+    height: 90%;
+    margin: 0px auto;
     line-height: 1.6;
     font-size: 18px;
-    padding: 15px 5px 10px 5px;
-    display: block;
+    padding: 15px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 9px 11px 37px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 5px 5px 5px 5px;
 }
 .dataTable {
     display: flex;
-    justify-content: center;
-    padding: 10px;
-    padding-left: 20px;
+    gap: 10px;
+    padding: 20px;
 }
 table {
-    min-width: 60%;
+    min-width: 50%;
+    grid-area: table;
+}
+.dataText {
+    grid-area: text;
 }
 th {
-    padding: 5px;
-    text-align: left;
+    text-align: center;
+    font-weight: 25;
 }
 
 td {
-    text-align: left;
-    padding-right: 20px;
+    text-align: center;
+}
+
+td th,
+td,
+tr,
+th {
+    outline: 2px solid black;
+}
+
+.crimeName {
+    vertical-align: baseline;
+    text-indent: 2%;
+    text-align: unset;
 }
 
 .postcodeForm {
@@ -105,16 +170,20 @@ td {
     display: flex;
     justify-content: space-evenly;
     gap: 5px;
+    flex-wrap: wrap;
 }
 
 .monthSelector {
     display: flex;
+    gap: 10px;
+    font-size: 20px;
 }
 
 .postcodeInput {
-    padding: 2px;
     display: flex;
     gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .leaflet-container {
@@ -128,64 +197,26 @@ button:hover {
 }
 #map {
     position: relative;
+    width: 95%;
+    padding: 10px;
 }
 .mapContainer {
-    position: relative;
-    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 10px;
+    background-color: #ffffff;
+}
+select {
+    border-radius: 7px;
+    font-size: 16px;
+}
+input[type='text'] {
+    font-size: 16px;
 }
 
-.anti-social-behaviour.leaflet-interactive {
-    fill: #b72424;
-    stroke: #b72424;
-}
-.burglary.leaflet-interactive {
-    fill: #e37d00;
-    stroke: #e37d00;
-}
-.criminal-damage-arson.leaflet-interactive {
-    fill: #dec502;
-    stroke: #dec502;
-}
-.drugs.leaflet-interactive {
-    fill: #5ccd00;
-    stroke: #5ccd00;
-}
-.other-theft.leaflet-interactive {
-    fill: #08d17d;
-    stroke: #08d17d;
-}
-.possession-of-weapons.leaflet-interactive {
-    fill: #03b8af;
-    stroke: #03b8af;
-}
-.public-order.leaflet-interactive {
-    fill: #0440ca;
-    stroke: #0440ca;
-}
-.robbery.leaflet-interactive {
-    fill: #23007b;
-    stroke: #23007b;
-}
-.shoplifting.leaflet-interactive {
-    fill: #a50184;
-    stroke: #a50184;
-}
-.theft-from-the-person.leaflet-interactive {
-    fill: #c973b2;
-    stroke: #c973b2;
-}
-.vehicle-crime.leaflet-interactive {
-    fill: #6d6668;
-    stroke: #6d6668;
-}
-.violent-crime.leaflet-interactive {
-    fill: #572323;
-    stroke: #572323;
-}
-.other-crime.leaflet-interactive {
-    fill: #214304;
-    stroke: #214304;
-}
 /* .leaflet-layer,
 .leaflet-control-zoom-in,
 .leaflet-control-zoom-out,

@@ -25,17 +25,23 @@ const App = () => {
                 </div>
                 <PostcodeForm
                     postcode={postcode}
-                    data={data}
                     setMessage={setMessage}
                     setPostcode={setPostcode}
                     setData={setData}
                     setCoords={setCoords}
                 ></PostcodeForm>
                 <div className="errorMessage">{message}</div>
-                <div className="dataTable">
-                    <DataTable data={data}></DataTable>
-                </div>
-                <div className="mapContainer">
+                <DataTable data={data}></DataTable>
+                <div
+                    className="mapContainer"
+                    style={
+                        Object.keys(data).length > 0
+                            ? {
+                                  backgroundColor: 'rgb(214 158 151 / 66%)'
+                              }
+                            : {}
+                    }
+                >
                     <Map coords={coords} data={data}></Map>
                 </div>
             </div>
