@@ -41,7 +41,7 @@
         "vite": "^4.4.3"
     },
     "scripts": {
-        "dev": "concurrently 'vite' 'nodemon --config src/server/nodemon.json src/server/index.ts'",
+        "dev": "NODE_ENV=dev concurrently 'vite' 'nodemon --config src/server/nodemon.json src/server/index.ts'",
         "build": "tsc && vite build",
         "lint": "prettier . --check || exit 1 ; eslint . --max-warnings=0",
         "lint:fix": "prettier . --write ; eslint . --fix",
