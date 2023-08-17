@@ -37,7 +37,7 @@ const App = () => {
                     style={
                         Object.keys(data).length > 0
                             ? {
-                                  backgroundColor: 'rgb(214 158 151 / 66%)'
+                                  backgroundColor: '#687ab74d'
                               }
                             : {}
                     }
