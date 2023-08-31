@@ -56,6 +56,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nodemon", "npm:3.0.1"],\
             ["prettier", "npm:3.0.0"],\
             ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:18.2.0"],\
             ["react-icons", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:4.10.1"],\
             ["react-leaflet", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:4.2.1"],\
             ["ts-jest", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:29.1.1"],\
@@ -1668,7 +1669,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:18.2.7"],\
             ["leaflet", "npm:1.9.4"],\
             ["react", "npm:18.2.0"],\
-            ["react-dom", null]\
+            ["react-dom", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:18.2.0"]\
           ],\
           "packagePeers": [\
             "@types/leaflet",\
@@ -5482,6 +5483,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nodemon", "npm:3.0.1"],\
             ["prettier", "npm:3.0.0"],\
             ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:18.2.0"],\
             ["react-icons", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:4.10.1"],\
             ["react-leaflet", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:4.2.1"],\
             ["ts-jest", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:29.1.1"],\
@@ -6585,6 +6587,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-dom", [\
+        ["npm:18.2.0", {\
+          "packageLocation": "./.yarn/cache/react-dom-npm-18.2.0-dd675bca1c-7d323310be.zip/node_modules/react-dom/",\
+          "packageDependencies": [\
+            ["react-dom", "npm:18.2.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:18.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-dom-virtual-23be2d0089/0/cache/react-dom-npm-18.2.0-dd675bca1c-7d323310be.zip/node_modules/react-dom/",\
+          "packageDependencies": [\
+            ["react-dom", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:18.2.0"],\
+            ["@types/react", "npm:18.2.14"],\
+            ["loose-envify", "npm:1.4.0"],\
+            ["react", "npm:18.2.0"],\
+            ["scheduler", "npm:0.23.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-icons", [\
         ["npm:4.10.1", {\
           "packageLocation": "./.yarn/cache/react-icons-npm-4.10.1-74abe904b6-b6c8d4fe48.zip/node_modules/react-icons/",\
@@ -6634,7 +6660,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:18.2.7"],\
             ["leaflet", "npm:1.9.4"],\
             ["react", "npm:18.2.0"],\
-            ["react-dom", null]\
+            ["react-dom", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:18.2.0"]\
           ],\
           "packagePeers": [\
             "@types/leaflet",\
@@ -6835,6 +6861,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/safer-buffer-npm-2.1.2-8d5c0b705e-cab8f25ae6.zip/node_modules/safer-buffer/",\
           "packageDependencies": [\
             ["safer-buffer", "npm:2.1.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["scheduler", [\
+        ["npm:0.23.0", {\
+          "packageLocation": "./.yarn/cache/scheduler-npm-0.23.0-a379a6bc3b-d79192eeaa.zip/node_modules/scheduler/",\
+          "packageDependencies": [\
+            ["scheduler", "npm:0.23.0"],\
+            ["loose-envify", "npm:1.4.0"]\
           ],\
           "linkType": "HARD"\
         }]\
