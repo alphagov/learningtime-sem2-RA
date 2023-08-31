@@ -2556,7 +2556,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.18.10":
+"esbuild@npm:0.18.12, esbuild@npm:^0.18.10":
   version: 0.18.12
   resolution: "esbuild@npm:0.18.12"
   dependencies:
@@ -4240,6 +4240,7 @@ __metadata:
     body-parser: ^1.20.2
     concurrently: ^8.2.0
     cors: ^2.8.5
+    esbuild: 0.18.12
     eslint: ^8.44.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.4.1

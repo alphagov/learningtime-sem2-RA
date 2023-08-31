@@ -42,6 +42,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["body-parser", "npm:1.20.2"],\
             ["concurrently", "npm:8.2.0"],\
             ["cors", "npm:2.8.5"],\
+            ["esbuild", "npm:0.18.12"],\
             ["eslint", "npm:8.44.0"],\
             ["eslint-plugin-react-hooks", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:4.6.0"],\
             ["eslint-plugin-react-refresh", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:0.4.3"],\
@@ -5467,6 +5468,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["body-parser", "npm:1.20.2"],\
             ["concurrently", "npm:8.2.0"],\
             ["cors", "npm:2.8.5"],\
+            ["esbuild", "npm:0.18.12"],\
             ["eslint", "npm:8.44.0"],\
             ["eslint-plugin-react-hooks", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:4.6.0"],\
             ["eslint-plugin-react-refresh", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:0.4.3"],\
@@ -7427,7 +7429,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/typescript", null],\
             ["babel-jest", null],\
             ["bs-logger", "npm:0.2.6"],\
-            ["esbuild", null],\
+            ["esbuild", "npm:0.18.12"],\
             ["fast-json-stable-stringify", "npm:2.1.0"],\
             ["jest", "virtual:1ee0779c710c72ee35f27e9ae2f5fc3805dca6f8de0fcead34e80e8bc63d80c6057599f05006257c287508b7341974992c0e51a4b3b8792a029d7f03442ec1ee#npm:29.6.1"],\
             ["jest-util", "npm:29.6.1"],\
