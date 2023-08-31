@@ -12,6 +12,9 @@ interface PostcodeFormProps {
     style?: Record<string, unknown>
 }
 
+const _streetLevelCrimeUrl = process.env.DEPLOY_URL ? `${process.env.DEPLOY_URL}/api/postcode` : 'https://localhost:5000/postcode/api'
+
+
 export const PostcodeForm = ({
     postcode,
     setMessage,
@@ -24,6 +27,7 @@ export const PostcodeForm = ({
     const handleForm = async (event: FormEvent) => {
         event.preventDefault()
         if (!postcode || postcode.length === 0) {
+            console.log(_streetLevelCrimeUrl)
             setMessage('Please enter a valid postcode')
             setData({})
             return
