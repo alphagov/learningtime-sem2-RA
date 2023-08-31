@@ -11,9 +11,7 @@ interface PostcodeFormProps {
     setCoords: (coords: LatLngExpression) => void
     style?: Record<string, unknown>
 }
-
-const _streetLevelCrimeUrl = process.env.DEPLOY_URL ? `${process.env.DEPLOY_URL}/api/postcode` : 'https://localhost:5000/postcode/api'
-
+const streetLevelCrimeUrl = import.meta.env.VITE_DEPLOY_URL ?  `${import.meta.env.VITE_DEPLOY_URL}/api/postcode`  : 'https://localhost:5000/postcode/api'
 
 export const PostcodeForm = ({
     postcode,
@@ -27,14 +25,13 @@ export const PostcodeForm = ({
     const handleForm = async (event: FormEvent) => {
         event.preventDefault()
         if (!postcode || postcode.length === 0) {
-            console.log(_streetLevelCrimeUrl)
             setMessage('Please enter a valid postcode')
             setData({})
             return
         }
         try {
-            console.log(_streetLevelCrimeUrl)
-            const response = await fetch('https://crimemapper.onrender.com/api/postcode', {
+            console.log(streetLevelCrimeUrl)
+            const response = await fetch(streetLevelCrimeUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
