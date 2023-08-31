@@ -29,7 +29,7 @@ export const PostcodeForm = ({
             return
         }
         try {
-            const response = await fetch('http://localhost:5000/api/postcode', {
+            const response = await fetch(process.env.DEPLOY_URL ??'http://localhost:5000/api/postcode', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
