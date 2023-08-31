@@ -3,9 +3,8 @@
 interface ImportMetaEnv {
     readonly VITE_DEPLOY_URL: string
     // more env variables...
-  }
-  
-  interface ImportMeta {
+}
+
+interface ImportMeta {
     readonly env: ImportMetaEnv
-  }
-  
+}

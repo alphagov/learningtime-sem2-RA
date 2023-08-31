@@ -11,7 +11,9 @@ interface PostcodeFormProps {
     setCoords: (coords: LatLngExpression) => void
     style?: Record<string, unknown>
 }
-const streetLevelCrimeUrl = import.meta.env.VITE_DEPLOY_URL ?  `${import.meta.env.VITE_DEPLOY_URL}/api/postcode`  : 'https://localhost:5000/postcode/api'
+const streetLevelCrimeUrl = import.meta.env.VITE_DEPLOY_URL
+    ? `${import.meta.env.VITE_DEPLOY_URL}/api/postcode`
+    : 'http://localhost:5000/api/postcode'
 
 export const PostcodeForm = ({
     postcode,
