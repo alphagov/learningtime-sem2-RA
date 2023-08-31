@@ -30,7 +30,6 @@ export const PostcodeForm = ({
             return
         }
         try {
-            console.log(streetLevelCrimeUrl)
             const response = await fetch(streetLevelCrimeUrl, {
                 method: 'POST',
                 headers: {
