@@ -33,6 +33,7 @@ export const PostcodeForm = ({
             return
         }
         try {
+            console.log(_streetLevelCrimeUrl)
             const response = await fetch('https://crimemapper.onrender.com/api/postcode', {
                 method: 'POST',
                 headers: {
