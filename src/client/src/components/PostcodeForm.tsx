@@ -29,7 +29,7 @@ export const PostcodeForm = ({
             return
         }
         try {
-            const response = await fetch(process.env.DEPLOY_URL ? `${process.env.DEPLOY_URL}/api/postcode` :'http://localhost:5000/api/postcode', {
+            const response = await fetch('https://crimemapper.onrender.com/api/postcode', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
