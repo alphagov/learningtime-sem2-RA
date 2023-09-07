@@ -10,6 +10,7 @@ import {
     useMap
 } from 'react-leaflet'
 import { PoliceAPIResponse } from '../../../server/utils/types/policeAPI'
+import { cleanName } from '../../../server/utils/cleanNames'
 
 interface MapProps {
     coords: LatLngExpression
@@ -93,7 +94,11 @@ const createMarkers = (
                 fillOpacity={1}
                 color={colourDict[key]}
             >
-                <Popup>{crimeEntry.category}</Popup>
+                <Popup>
+                    {cleanName(crimeEntry.category)} <br />
+                    The outcome for this crime was:{' '}
+                    {crimeEntry.outcome_status?.category ?? 'Not Provided'}{' '}
+                </Popup>
             </CircleMarker>
         ))
     })
@@ -117,7 +122,7 @@ const createFilterButtons = (
             }}
             id={key}
         >
-            {key}
+            {cleanName(key)}
         </button>
     ))
 

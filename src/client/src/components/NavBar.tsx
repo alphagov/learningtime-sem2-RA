@@ -1,9 +1,12 @@
+import { useState } from 'react'
 import { GrUserPolice } from 'react-icons/gr'
-interface NavBarProps {
-    scrollHeight: number
-}
 
-export const NavBar = ({ scrollHeight }: NavBarProps) => {
+export const NavBar = () => {
+    const [scrollHeight, setScrollHeight] = useState(0)
+
+    window.addEventListener('scroll', () =>
+        setScrollHeight(window.scrollY < 150 ? window.scrollY : 150)
+    )
     let transparency = 1
     let fontSize = 20
     let blur = 0

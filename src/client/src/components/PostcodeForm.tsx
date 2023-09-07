@@ -4,10 +4,8 @@ import { MonthSelector } from './MonthSelector'
 import { LatLngExpression } from 'leaflet'
 import { sortObject } from '../../../server/utils/types/sortObject'
 interface PostcodeFormProps {
-    postcode: string
     setMessage: (message: string) => void
     setData: (data: Record<string, PoliceAPIResponse[]>) => void
-    setPostcode: (postcode: string) => void
     setCoords: (coords: LatLngExpression) => void
     style?: Record<string, unknown>
 }
@@ -16,13 +14,12 @@ const streetLevelCrimeUrl = import.meta.env.VITE_DEPLOY_URL
     : 'http://localhost:5000/api/postcode'
 
 export const PostcodeForm = ({
-    postcode,
     setMessage,
     setData,
-    setPostcode,
     setCoords
 }: PostcodeFormProps) => {
     const [month, setMonth] = useState('2022-06')
+    const [postcode, setPostcode] = useState('')
 
     const handleForm = async (event: FormEvent) => {
         event.preventDefault()
